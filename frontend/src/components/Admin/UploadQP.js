@@ -26,7 +26,7 @@ const Paper = () => {
         data.append('sub',sub);
 
 
-        axios.post("https://api.bcapoints.in//upload", data)
+        axios.post("https://api.bcapoints.in/upload", data)
           .then(res => {
             toast.success("Question Paper Uploaded! ")
           }).catch(err => console.log('err:yE',err));

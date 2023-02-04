@@ -10,7 +10,7 @@ const Customer = () => {
     const navigate = useNavigate()
     const fetchData = () => {
         return (
-            axios.get(`https://api.bcapoints.in//api/customer`).then((response) => setData(response.data))
+            axios.get(`https://api.bcapoints.in/api/customer`).then((response) => setData(response.data))
         )
     }
 

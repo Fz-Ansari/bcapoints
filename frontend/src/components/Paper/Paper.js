@@ -20,7 +20,7 @@ const Paper = () => {
 
     const fetchData = () => {
         return (
-            axios.get(`https://api.bcapoints.in//upload`).then((response) => setData(response.data))
+            axios.get(`https://api.bcapoints.in/upload`).then((response) => setData(response.data))
         )
     }
 
@@ -30,7 +30,7 @@ const Paper = () => {
 
     const download = async (id) => {
         setLoad(true);
-        const res = await axios.get(`https://api.bcapoints.in//single/${id}`);
+        const res = await axios.get(`https://api.bcapoints.in/single/${id}`);
         setNewData(res.data.image.data.data);
         setContentType(res.data.image.contentType);
         setOriginalName(res.data.name)

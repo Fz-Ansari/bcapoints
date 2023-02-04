@@ -21,7 +21,7 @@ function ContactUs() {
 const submitData =  async ( ) => {
 const { name , email  , message} = UserData;
 
-    axios.post("https://api.bcapoints.in//api/customer", {
+    axios.post("https://api.bcapoints.in/api/customer", {
       "username": name,
       "email": email,
       "message": message
