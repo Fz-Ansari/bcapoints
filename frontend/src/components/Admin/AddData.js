@@ -15,7 +15,7 @@ const AdminData = () => {
   const navigate = useNavigate()
 
   const upload = () => {
-    axios.post("http://109.106.255.239:8000/api/posts", {
+    axios.post("https://api.bcapoints.in/api/posts", {
       "title": title,
       "description": content,
       "username": username,
@@ -29,7 +29,7 @@ const AdminData = () => {
 
   const fetchData = () => {
     return (
-      axios.get("http://109.106.255.239:8000/api/posts").then((response) => setData(response.data))
+      axios.get("https://api.bcapoints.in/api/posts").then((response) => setData(response.data))
     )
   }
 

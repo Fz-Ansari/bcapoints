@@ -24,7 +24,7 @@ const Paper = () => {
         data.append('sub',sub);
 
 
-        axios.post("http://109.106.255.239:8000/upload", data)
+        axios.post("https://api.bcapoints.in/upload", data)
           .then(res => {
             toast.success("New Note Created 😎 Hurrehh! ")
           }).catch(err => console.log('err:yE',err));

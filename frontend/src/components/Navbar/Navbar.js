@@ -14,7 +14,7 @@ function Navbar() {
 
     const fetchData = () => {
       return (
-        axios.get(`http://109.106.255.239:8000/api/posts`).then((response) => setData(response.data))
+        axios.get(`https://api.bcapoints.in/api/posts`).then((response) => setData(response.data))
       )
     }
     useEffect(() => {

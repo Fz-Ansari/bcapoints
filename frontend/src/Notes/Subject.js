@@ -4,8 +4,9 @@ import axios from 'axios';
 import { useParams } from "react-router-dom"
 import Parser from 'html-react-parser';
 import { jsPDF } from "jspdf";
-import { AiOutlineCloudDownload, AiFillLeftSquare, AiOutlineAlignLeft } from 'react-icons/ai'
+import { AiOutlineCloudDownload } from 'react-icons/ai'
 import { BsChevronDoubleRight } from 'react-icons/bs'
+import { RotatingLines } from 'react-loader-spinner'
 
 
 function Subject() {
@@ -17,7 +18,7 @@ function Subject() {
     useEffect(() => {
         const fetchData = () => {
             return (
-                axios.get(`http://109.106.255.239:8000/api/posts`).then((response) => setData(response.data))
+                axios.get(`https://api.bcapoints.in/api/posts`).then((response) => setData(response.data))
             )
         }
         fetchData();
@@ -81,6 +82,15 @@ function Subject() {
                 <button className=' tBtn' onClick={() => setNavStyle('showSide')} ><BsChevronDoubleRight className='aero' /></button>
                 {toggle && <button onClick={dowNote} className="btn btn-primary mb-5" ><AiOutlineCloudDownload /> Download Note</button>}
                 <div className='container subjct' id='contnet'>
+                {data.length === 0 && <div className='btn-load'><RotatingLines
+                    height="40"
+                    width="40"
+                    radius="9"
+                    color="red"
+                    ariaLabel="loading"
+                    wrapperStyle
+                    wrapperClass
+                /><p>Fetching Data,Please wait...</p></div>}
                     {!toggle && data.map(item => { return item.sub === id && <div className='allContent' key={item._id}> {Parser(item.description)}</div> })}
                     {toggle && Object.keys(single).map(key => { return key === 'description' && <div key={Math.random() * 10}> {Parser(single[key])}</div> })}
                 </div>

@@ -20,14 +20,14 @@ const Upate = () => {
 
   const fetchData = () => {
     return (
-      axios.get(`http://109.106.255.239:8000/api/posts`).then((response) => {
+      axios.get(`https://api.bcapoints.in/api/posts`).then((response) => {
         response.data.map(item => item.title === title && setContent(item.description))
       })
     )
   }
   const fetchData1 = () => {
     return (
-      axios.get(`http://109.106.255.239:8000/api/posts`).then((response) => {
+      axios.get(`https://api.bcapoints.in/api/posts`).then((response) => {
         response.data.map(item => item.title === title && setData(item))
       })
     )
@@ -44,7 +44,7 @@ const Upate = () => {
   }, [navigate]);
 
   const update = () => {
-    axios.put(`http://109.106.255.239:8000/api/posts/${data._id}`, {
+    axios.put(`https://api.bcapoints.in/api/posts/${data._id}`, {
       "title": newTitle,
       "description": content,
       "username": username,

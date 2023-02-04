@@ -111,8 +111,8 @@ h1 em {
 .dwlQP {
   width: 50%;
   height: 40vh;
-  margin:40% 15%;
-  background: linear-gradient(45deg, #fc00ff , #00dbde);
+  margin: 40% 15%;
+  background: linear-gradient(45deg, #fc00ff, #00dbde);
   position: absolute;
   top: 0;
   z-index: 111;
@@ -128,37 +128,57 @@ h1 em {
 }
 
 @keyframes example {
-  from {left:200%;}
-  to {left:10%;}
+  from {
+    left: 200%;
+  }
+
+  to {
+    left: 10%;
+  }
 }
 
-.QnBtn{
+.QnBtn {
   width: 70%;
   box-shadow: 3px 4px 7px black;
 }
 
-.cancleBtn{
+.cancleBtn {
   font-size: 40px;
   cursor: pointer;
 }
 
 /* banner css */
-.content h4{
+.content h4 {
   font-size: 4rem;
   color: yellow;
   margin: 40px 0 12px 72px;
 }
+
 .paper-home {
-  background: linear-gradient(45deg, #fc00ff , #00dbde);
+  background: linear-gradient(45deg, #fc00ff, #00dbde);
   background-size: cover;
   background-position: center;
   height: 300px;
 }
-.paper-img{
-height: 336px;
+
+.paper-img {
+  height: 336px;
   margin-top: -11px;
   margin-left: 89px;
 }
+
+.btn-load{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-load > p{
+  font-size: larger;
+  padding-top:18px;
+}
+
+
 
 @media (max-width:600px) {
 
@@ -169,11 +189,11 @@ height: 336px;
     margin-left: auto;
     margin-right: auto;
     /* margin:20% auto; */
-   
-  
+
+
   }
 
-  .QnBtn{
+  .QnBtn {
     width: 80%;
   }
 }
@@ -192,15 +212,17 @@ height: 336px;
     font-size: 3rem;
     margin: 40px 0 12px 72px;
   }
-  .paper-btn{
+
+  .paper-btn {
     width: 80%;
 
   }
+
   select {
     width: 100%;
     height: 40px;
     margin-right: 0px;
-   
+
   }
 
 
@@ -212,6 +234,7 @@ height: 336px;
     margin: 45px 0 12px 15px;
   }
 }
+
 @media (max-width: 370px) {
   .content h4 {
     font-size: 2.3rem;

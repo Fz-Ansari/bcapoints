@@ -6,6 +6,7 @@ import stand from './image/stand.png'
 import Data from './Data';
 import ShowMore from './ShowMore';
 import {Link} from 'react-router-dom'
+import { RotatingLines } from 'react-loader-spinner'
 
 
 
@@ -17,7 +18,7 @@ function Books() {
 
     const fetchData = () => {
         return (
-            axios.get(`http://109.106.255.239:8000/api/book`).then((response) => setData(response.data))
+            axios.get(`https://api.bcapoints.in/api/book`).then((response) => setData(response.data))
         )
     }
 
@@ -78,6 +79,15 @@ function Books() {
                    </div>
                    
                     <div className="row row-cols-1 row-cols-xs-1 row-cols-sm-2 row-cols-lg-4 g-3">
+                    {data.length === 0 && <div className='btn-load'><RotatingLines
+                    height="40"
+                    width="40"
+                    radius="9"
+                    color="red"
+                    ariaLabel="loading"
+                    wrapperStyle
+                    wrapperClass
+                /><p>Fetching Data,Please wait...</p></div>}
                         {(filter.length === 0) && data.map(item =>
 
                             <div className="col" key={item._id}>
