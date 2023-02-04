@@ -18,7 +18,7 @@ function Books() {
 
     const fetchData = () => {
         return (
-            axios.get(`https://api.bcapoints.in/api/book`).then((response) => setData(response.data))
+            axios.get(`https://api.bcapoints.in//api/book`).then((response) => setData(response.data))
         )
     }
 

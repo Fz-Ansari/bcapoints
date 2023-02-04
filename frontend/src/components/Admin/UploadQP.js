@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
+import { RotatingLines } from 'react-loader-spinner'
 
 const Paper = () => {
 
@@ -14,9 +15,10 @@ const Paper = () => {
     const [sem, setSem] = useState(0);
     const [sub, setSub] = useState('0');
     const [title, setTitle] = useState('');
-    // const [pdf,setPdf]= useState('')
+    const [load, setLoad] = useState(false);
   
     const upload = () => {
+        setLoad(true);
         const data = new FormData();
         data.append('file',file,file.name);
         data.append('name',title);
@@ -24,16 +26,26 @@ const Paper = () => {
         data.append('sub',sub);
 
 
-        axios.post("https://api.bcapoints.in/upload", data)
+        axios.post("https://api.bcapoints.in//upload", data)
           .then(res => {
-            toast.success("New Note Created 😎 Hurrehh! ")
+            toast.success("Question Paper Uploaded! ")
           }).catch(err => console.log('err:yE',err));
+          setLoad(false)
       }
     
   return (
     <div className='container'>
         <div className='App'>
                 <br />
+                {load && <div className='btn-load'><RotatingLines
+                    height="50"
+                    width="50"
+                    radius="9"
+                    color="red"
+                    ariaLabel="loading"
+                    wrapperStyle
+                    wrapperClass
+                /><p>Uploading...</p></div>}
                 <input className='my-2 px-4 py-1 font-size-5' type={'text'} placeholder='Title ..' value={title} onChange={(e) => setTitle(e.target.value)} /><br />
                 <select className='my-2 px-4 py-1 font-size-5' onChange={(e) => { setSem(e.target.value) }}>
                     <option value="0">Select Semester:</option>
@@ -101,6 +113,7 @@ const Paper = () => {
             <input type={'file'}  onChange={onInputChange} />
             <button className='btn btn-primary my-4 px-4' onClick={upload}>Create</button>
             <ToastContainer />
+
     </div>
   )
 }

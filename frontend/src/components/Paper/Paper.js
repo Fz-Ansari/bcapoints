@@ -20,7 +20,7 @@ const Paper = () => {
 
     const fetchData = () => {
         return (
-            axios.get(`https://api.bcapoints.in/upload`).then((response) => setData(response.data))
+            axios.get(`https://api.bcapoints.in//upload`).then((response) => setData(response.data))
         )
     }
 
@@ -30,7 +30,7 @@ const Paper = () => {
 
     const download = async (id) => {
         setLoad(true);
-        const res = await axios.get(`https://api.bcapoints.in/single/${id}`);
+        const res = await axios.get(`https://api.bcapoints.in//single/${id}`);
         setNewData(res.data.image.data.data);
         setContentType(res.data.image.contentType);
         setOriginalName(res.data.name)
@@ -126,7 +126,15 @@ const Paper = () => {
                         <option value="Web Development Tools & Techniques">Web Development Tools & Techniques</option>
                     </select>}
             </div>
-
+            {load && <div className='btn-load'><RotatingLines
+                    height="40"
+                    width="40"
+                    radius="9"
+                    color="red"
+                    ariaLabel="loading"
+                    wrapperStyle
+                    wrapperClass
+                /><p>Genrating Link...</p></div>}
             {sub !== '0' && <div className="three">
                 <h1>{sub}</h1>
             </div>}
@@ -143,18 +151,11 @@ const Paper = () => {
                     wrapperStyle
                     wrapperClass
                 /><p>Fetching Data,Please wait...</p></div>}
+               
                 {sub !== '0' && data.map(item => item.sub === sub && <div className='container QuestionC' key={item._id}> <h3 onClick={() => download(`${item._id}`)}>{item.name}</h3></div>)}
                 {sub === '0' && data.map(item => <div className='container QuestionC' key={item._id}> <h3 onClick={() => download(`${item._id}`)}>{item.name}</h3></div>)}
                 {contentType !== '' && <div className='dwlQP'><h2>{originalName}</h2><span className='cancleBtn' onClick={() => setContentType('')}><ImCancelCircle /></span> <button className="btn btn-primary px-5 py-2 QnBtn" onClick={() => downloadPdf(originalName, contentType)}><AiOutlineCloudDownload />Download</button></div>}
-                {load && <div className='btn-load'><RotatingLines
-                    height="40"
-                    width="40"
-                    radius="9"
-                    color="red"
-                    ariaLabel="loading"
-                    wrapperStyle
-                    wrapperClass
-                /><p>Genrating Link...</p></div>}
+                
             </div>
 
 

@@ -11,7 +11,7 @@ const Search = () => {
 
   const fetchData = () => {
     return (
-        axios.get(`https://api.bcapoints.in/api/posts`).then((response) => setData(response.data))
+        axios.get(`https://api.bcapoints.in//api/posts`).then((response) => setData(response.data))
     )
 }
 
@@ -20,7 +20,7 @@ useEffect(()=>{
 },[]);
   
   return (
-    <div className='container-fluid search'>{data.map(item => item.title === title && <div><h4 className='title'>{item.title}</h4><p>{Parser(item.description)}</p><p className='author'>Written By - {item.username}</p></div>)}</div>
+    <div className='container-fluid search'>{data.map(item => item.title === title && <div><p>{Parser(item.description)}</p></div>)}</div>
   )
 }
 

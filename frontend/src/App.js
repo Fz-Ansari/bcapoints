@@ -19,6 +19,7 @@ import UploadQP from './components/Admin/UploadQP'
 import AboutUs from './components/About/AboutUs';
 import UploadBook from './components/Admin/UploadBook';
 import Services from './components/Services';
+import Customer from './components/Customer/customer'
 
 function App() {
   return (
@@ -43,6 +44,8 @@ function App() {
           <Route path='uploadQP' element={<UploadQP />} />
           <Route path='uploadBook' element={<UploadBook />} />
           <Route path='services' element={<Services />} />
+          <Route path='userData' element={<Customer />} />
+
 
       </Routes>
       <Footer/>

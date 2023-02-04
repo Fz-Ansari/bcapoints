@@ -13,21 +13,18 @@ function Footer() {
           </div>
 
           <div>
-            <Link to="/" className="me-4 text-reset">
+            <a href="https://www.facebook.com/profile.php?id=100089712534082" className="me-4 text-reset">
               <i className="fab fa-facebook-f"></i>
-            </Link>
-            <Link to="/" className="me-4 text-reset">
+            </a>
+            <a href="https://www.youtube.com/channel/UCQL2aB3Ya0KUumqx_IBMXpA" className="me-4 text-reset">
               <i className="fab fa-youtube"></i>
-            </Link>
-            <Link to="/" className="me-4 text-reset">
-              <i className="fab fa-whatsapp"></i>
-            </Link>
-            <Link to="/" className="me-4 text-reset">
+            </a>
+            <a href="https://www.instagram.com/bcapoints.in/" className="me-4 text-reset">
               <i className="fab fa-instagram"></i>
-            </Link>
-            <Link to="/" className="me-4 text-reset">
+            </a>
+            <a href="https://www.linkedin.com/in/bca-points-19098b264/" className="me-4 text-reset">
               <i className="fab fa-linkedin"></i>
-            </Link>
+            </a>
           </div>
         </section>
 

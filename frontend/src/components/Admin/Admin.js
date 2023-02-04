@@ -4,6 +4,7 @@ import { SlNote } from 'react-icons/sl'
 import { BiEdit } from 'react-icons/bi'
 import { AiFillDelete } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom';
+import {ImUsers} from "react-icons/im"
 
 const Admin = () => {
   const navigate = useNavigate()
@@ -24,6 +25,7 @@ const Admin = () => {
       <Link className='btn btn-success m-3' to="/updateData"><BiEdit />Update Note</Link>
       <Link className='btn btn-success m-3' to="/uploadBook"><BiEdit />Upload Book</Link>
       <Link className='btn btn-danger m-3' to="/updateData"><AiFillDelete />Delete Note</Link>
+      <Link className='btn btn-info m-3' to="/userData"><ImUsers />User Data</Link>
     </div>
   )
 }

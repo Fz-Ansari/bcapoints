@@ -131,6 +131,7 @@
 .style {
   /* width: 18rem; */
   border: none;
+  cursor: pointer;
 }
 
 .card-img {

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import React  from 'react'
 import { toast, ToastContainer } from 'react-toastify';
+import axios from "axios";
 
 function ContactUs() {
 
@@ -17,42 +18,18 @@ function ContactUs() {
 
         SetUerData({  ...UserData, [name]:value})
     }
-const submitData =  async(e) => {
-  e.preventDefault();
-
+const submitData =  async ( ) => {
 const { name , email  , message} = UserData;
 
-if( name && email  && message){
-   const res =  fetch("https://bcapoints-default-rtdb.firebaseio.com/:userRecord.json",{
-   method: "POST",
-   headers:{
-    "Content-Type": "application/json",
-   },
-   body : JSON.stringify({
-
-    name , email , message
-
-   }),
-})
- 
-if(res){
-
-    SetUerData({
-        name: "",
-        email: "",
-        message: "",  
+    axios.post("https://api.bcapoints.in//api/customer", {
+      "username": name,
+      "email": email,
+      "message": message
     })
-    toast.success("data submited succesfully!")
-    
-}
-else{
-    toast.error("invalid ! Fill all the Filled")
-}
-}
-else{
-    toast.error("invalid ! Fill all the Filled")  
-}
-
+      .then(res => {
+        toast.success("Thanks for Your Intrest !")
+      }).catch(err => toast.error('Please fill all the fild properly!'));
+  
 }
     
   return (
@@ -74,7 +51,7 @@ else{
             <div className="row">
                     <div className="col-md-12">
                         <div className="md-form mb-0">
-                            <input type="text" id="name" name="name" className="form-control" value = {UserData.subject} onChange = {postUserData}/>
+                            <input type="text" id="name" name="name" className="form-control" value = {UserData.name} onChange = {postUserData}/>
                             <label htmlFor="subject" className="">Your Name</label>
                         </div>
                     </div>
@@ -83,7 +60,7 @@ else{
                 <div className="row">
                     <div className="col-md-12">
                         <div className="md-form mb-0">
-                            <input type="text" id="email" name="email" className="form-control" value = {UserData.subject} onChange = {postUserData}/>
+                            <input type="email"  id="email" name="email" className="form-control" value = {UserData.email} onChange = {postUserData}/>
                             <label htmlFor="subject" className="">Your email</label>
                         </div>
                     </div>

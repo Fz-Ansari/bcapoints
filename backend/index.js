@@ -7,8 +7,8 @@ const mongoose = require("mongoose")
 const authRoute = require('./routes/auth')
 const userRoute = require('./routes/users')
 const postRoute = require('./routes/posts')
-const categoryRoute = require('./routes/categories')
 const bookRoute = require('./routes/book');
+const custRoute = require('./routes/customer')
 const multer = require("multer");
 const pdfModel = require('./models/Image.model')
 var cors = require('cors')
@@ -33,8 +33,8 @@ mongoose.connect(`${process.env.MONGO_URL}`,{
 app.use("/api/auth",authRoute);
 app.use("/api/users",userRoute);
 app.use("/api/posts",postRoute);
-app.use("/api/category",categoryRoute);
 app.use("/api/book",bookRoute);
+app.use("/api/customer",custRoute);
 
 
 //storage
