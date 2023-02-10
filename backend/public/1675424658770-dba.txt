@@ -1,3 +1,0 @@
-mongodb+srv://bcapoint:bcapoint786fh@cluster0.igynnp6.mongodb.net/bcapoint?retryWrites=true&w=majority
-
-git remote add origin git@github.com:Fz-Ansari/bcapoints.git
